@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aquarium Display</title>
+  <style>
+    body {
+      background-image: url('aquarium.png');
+      background-size: cover;
+      height: 100vh;
+      margin: 0;
+    }
+    #drawing {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <img id="drawing" src="latest_drawing.png" alt="Latest Drawing">
+  <script>
+    const drawing = document.getElementById('drawing');
+
+    // Calculate the screen width and height
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Set the initial position and speed
+    let x = 0;
+    let y = 0;
+    let speedX = 1;
+    let speedY = 1;
+
+    function animate() {
+      x += speedX;
+      y += speedY;
+
+      // Bounce off the edges of the screen
+      if (x < 0 || x > screenWidth - drawing.width) {
+        speedX *= -1;
+      }
+      if (y < 0 || y > screenHeight - drawing.height) {
+        speedY *= -1;
+      }
+
+      drawing.style.left = x + 'px';
+      drawing.style.top = y + 'px';
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

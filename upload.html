@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draw and Upload</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    #myCanvas {
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: crosshair;
+    }
+
+    #controls {
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Draw Your Artwork</h1>
+  <canvas id="myCanvas" width="500" height="300"></canvas>
+  <br>
+  <div id="controls">
+    <select id="colorPicker">
+      <option value="black">Black</option>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
+      <option value="white">Eraser</option>
+    </select>
+    <button onclick="clearCanvas()">Clear</button>
+    <button onclick="uploadDrawing()">Upload Drawing</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
